@@ -1,18 +1,42 @@
 import React from "react";
-import './NavBar.css';
+import "./NavBar.css";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
     <nav>
       <ul>
-        <li><img src="https://www.nicepng.com/png/detail/27-273472_mobile-phone-outline-free-vectors-logos-icons-and.png" alt="logo" /><p>Tienda</p></li>
-        <li><a href="#">Apple</a></li>
-        <li><a href="#">Samsung</a></li>
-        <li><a href="#">Huawei</a></li>
-        <li><a href="#">Xiaomi</a></li>
-        <li><a href="#">Motorola</a></li>
-        <CartWidget/>
+        <Link to="/">
+          <li>
+            <img src="logostore.png" alt="logo" />
+            <p>Tienda</p>
+          </li>
+        </Link>
+
+        <Link to="/apple">
+          <li>Apple</li>
+        </Link>
+
+        <Link to="/samsung">
+          <li>Samsung</li>
+        </Link>
+
+        <Link to="huawei">
+          <li>Huawei</li>
+        </Link>
+
+        <Link to="xiamoi">
+          <li>Xiaomi</li>
+        </Link>
+
+        <Link>
+          <li>Motorola</li>
+        </Link>
+
+        <Link to="/cart">
+          <CartWidget />
+        </Link>
       </ul>
     </nav>
   );
