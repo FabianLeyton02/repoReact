@@ -4,6 +4,7 @@ import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 
 function NavBar() {
+  
   return (
     <nav>
       <ul>
@@ -22,15 +23,15 @@ function NavBar() {
           <li>Samsung</li>
         </Link>
 
-        <Link to="huawei">
+        <Link to="/huawei">
           <li>Huawei</li>
         </Link>
 
-        <Link to="xiamoi">
+        <Link to="/xiamoi">
           <li>Xiaomi</li>
         </Link>
 
-        <Link>
+        <Link to="/motorola">
           <li>Motorola</li>
         </Link>
 

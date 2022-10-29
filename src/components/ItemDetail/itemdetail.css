@@ -1,0 +1,14 @@
+.itemdetail {
+  border-style: outset;
+  border-color: black;
+  border-width: 2px;
+}
+
+img {
+  height: 30%;
+  width: 30%;
+}
+
+h4 {
+  color: black;
+}

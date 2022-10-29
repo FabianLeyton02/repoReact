@@ -1,27 +1,34 @@
-import React, { useState } from "react";
-import "./ItemListContainer.css";
-import { getAllPhones } from "./ItemListData";
+import React, { useState, useEffect } from "react";
+import { getAllPhones, getPhonesByCategory } from "../../services/firebase";
 import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 function ItemListContainer(props) {
-  const [data, setPhonesList] = useState([]);
-  getAllPhones().then((data) => setPhonesList(data));
+  const [phoneList, setPhonesList] = useState([]);
+  const { category } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setPhonesList([]);
+    if (category === undefined) {
+      getAllPhones().then((phoneList) => {
+        setPhonesList(phoneList);
+        setIsLoading(false);
+      });
+    } else {
+      getPhonesByCategory(category).then((phoneList) => {
+        setPhonesList(phoneList);
+        setIsLoading(false);
+      });
+    }
+  }, [category]);
 
   return (
-    <div className="listContainer">
+    <section>
       <h1>{props.greeting}</h1>
-      <ul className="listContainerList">
-        {data.map((item) => (
-          <li key={item.id}>
-            <ItemList
-              title={item.title}
-              route={item.img}
-              alt={item.alt}
-            ></ItemList>
-          </li>
-        ))}
-      </ul>
-    </div>
+      {isLoading ? <Loader /> : <ItemList phoneList={phoneList} />}
+    </section>
   );
 }
 

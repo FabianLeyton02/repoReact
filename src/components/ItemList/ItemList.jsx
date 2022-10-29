@@ -1,14 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./ItemList.css";
+import Item from "../Item/Item";
+import "./itemlist.css";
 
 function ItemList(props) {
   return (
-    <div className="ItemList">
-      <p>{props.title}</p>
-      <Link to={`/${props.id}`}>
-        <img src={props.route} alt={props.alt} />
-      </Link>
+    <div className="itemlist">
+      {props.phoneList.map((item) => {
+        return (
+          <Item
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            img={item.img}
+            alt={item.alt}
+            category={item.category}
+          />
+        );
+      })}
     </div>
   );
 }

@@ -1,9 +1,5 @@
-.ItemList {
-    display: flexbox;
-    flex-direction: row;
-}
-
-.ItemList img {
-    height: 100px;
-    width: 100px;
+.itemlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
