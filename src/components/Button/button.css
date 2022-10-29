@@ -5,3 +5,11 @@
   background-color: rgb(97, 150, 120);
   border-radius: 5px;
 }
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: rgb(7, 7, 70);
+}

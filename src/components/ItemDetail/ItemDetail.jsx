@@ -5,6 +5,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import "./itemdetail.css";
 import { cartContext } from "../../context/CartContext";
 import Loader from "../Loader/Loader";
+import Button from "../Button/Button";
 
 function ItemDetail({ phone }) {
   const [count, setCount] = useState(0);
@@ -30,7 +31,7 @@ function ItemDetail({ phone }) {
           />
         ) : (
           <Link to="/cart">
-            <h4>Ver carrito</h4>
+            <Button text="Ver carrito" color="blue" />
           </Link>
         )}
       </div>
